@@ -31,16 +31,16 @@ Make a directory `libs` in the GCAM workspace:
 
 ```bash
 cd <GCAM Workspace>
-mkdir libs
+mkdir gcam-core/libs
 ```
 
 ### Boost
 
-Boost provides various general purpose utlities for the C++ language. I downloaded version 1.63.0 from [Boost](http://www.boost.org/users/download) and unpacked the compressed tarball to `<GCAM Workspace>/libs`. Installation was then as follows:
+Boost provides various general purpose utlities for the C++ language. I downloaded version 1.63.0 from [Boost](http://www.boost.org/users/download) and unpacked the compressed tarball to `<GCAM Workspace>/gcam-core/libs`. Installation was then as follows:
 
 ```bash
-cd <GCAM Workspace>/libs/boost_1_63_0
-./bootstrap.sh --with-libraries=system,filesystem --prefix=<GCAM Workspace>/libs/boost-lib/stage/lib
+cd <GCAM Workspace>/gcam-core/libs/boost_1_63_0
+./bootstrap.sh --with-libraries=system,filesystem --prefix=<GCAM Workspace>/gcam-core/libs/boost_1_63_0/stage/lib
 ./b2 stage
 ```
 
@@ -49,8 +49,8 @@ cd <GCAM Workspace>/libs/boost_1_63_0
 The Xerces XML parser is used by GCAM to read model inputs and configurations. I downloaded the latest C++ version of Xerces from [Apache](http://xerces.apache.org/#xerces2-j) and, again, unpacked the compressed tarball to `<GCAM Workspace>/libs`. Following the official GCAM guide, I set two environment variables before installation:
 
 ```bash
-export XERCES_SRC=<GCAM Workspace>/libs/xerces-c-3.1.4
-export XERCES_INSTALL=<GCAM Workspace>/libs/xercesc
+export XERCES_SRC=<GCAM Workspace>/gcam-core/libs/xerces-c-3.1.4
+export XERCES_INSTALL=<GCAM Workspace>/gcam-core/libs/xercesc
 cd $XERCES_SRC
 ./configure CFLAGS="-m64" CXXFLAGS="-m64" --prefix=$XERCES_INSTALL --disable-netaccessor-curl
 make install
@@ -82,7 +82,7 @@ mkdir mac_binaries
 cd mac_binaries
 wget https://github.com/JGCRI/gcam-core/releases/download/gcam-v4.3/mac_binaries.tar.gz
 tar -xvzf mac_binaries.tar.gz
-cp -r jars ../libs
+cp -r libs/jars ../libs
 ```
 
 ## Hector
@@ -99,16 +99,14 @@ make install_hector
 Set the following environment variables:
 
 ```bash
-export GCAMLIB_HOME=<GCAM Workspace>/libs
-export BOOST_INCLUDE=<GCAM Workspace>/libs/boost_1_63_0
-export BOOST_LIB=<GCAM Workspace>/libs/boost_1_63_0/stage/lib
-export BOOSTROOT=<GCAM Workspace>/libs/src/boost
-export BOOST_NUMERIC_BINDINGS=<GCAM Workspace>/libs/src/boost-numeric-bindings
-export XERCES_INCLUDE=<GCAM Workspace>/libs/xercesc/include
-export XERCES_LIB=<GCAM Workspace>/libs/xercesc/lib
+export GCAM_WORKSPACE=<GCAM Workspace>
+export BOOST_INCLUDE=$GCAM_WORKSPACE/v4.3/gcam-core/libs/boost_1_63_0
+export BOOST_LIB=$GCAM_WORKSPACE/v4.3/gcam-core/libs/boost_1_63_0/stage/lib
+export XERCES_INCLUDE=$GCAM_WORKSPACE/v4.3/gcam-core/libs/xercesc/include
+export XERCES_LIB=$GCAM_WORKSPACE/v4.3/gcam-core/libs/xercesc/lib
+export JARS_LIB=$GCAM_WORKSPACE/v4.3/gcam-core/libs/jars/*
 export JAVA_INCLUDE=$JAVA_HOME/include
 export JAVA_LIB=$JAVA_HOME/jre/lib/amd64/server
-export JARS_LIB=<GCAM Workspace>/libs/jars/*
 ```
 
 Execute the following command to build GCAM:
