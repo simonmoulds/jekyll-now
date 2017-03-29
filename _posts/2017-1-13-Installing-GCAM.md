@@ -100,11 +100,11 @@ Set the following environment variables:
 
 ```bash
 export GCAM_WORKSPACE=<GCAM Workspace>
-export BOOST_INCLUDE=$GCAM_WORKSPACE/v4.3/gcam-core/libs/boost_1_63_0
-export BOOST_LIB=$GCAM_WORKSPACE/v4.3/gcam-core/libs/boost_1_63_0/stage/lib
-export XERCES_INCLUDE=$GCAM_WORKSPACE/v4.3/gcam-core/libs/xercesc/include
-export XERCES_LIB=$GCAM_WORKSPACE/v4.3/gcam-core/libs/xercesc/lib
-export JARS_LIB=$GCAM_WORKSPACE/v4.3/gcam-core/libs/jars/*
+export BOOST_INCLUDE=$GCAM_WORKSPACE/gcam-core/libs/boost_1_63_0
+export BOOST_LIB=$GCAM_WORKSPACE/gcam-core/libs/boost_1_63_0/stage/lib
+export XERCES_INCLUDE=$GCAM_WORKSPACE/gcam-core/libs/xercesc/include
+export XERCES_LIB=$GCAM_WORKSPACE/gcam-core/libs/xercesc/lib
+export JARS_LIB=$GCAM_WORKSPACE/gcam-core/libs/jars/*
 export JAVA_INCLUDE=$JAVA_HOME/include
 export JAVA_LIB=$JAVA_HOME/jre/lib/amd64/server
 ```
