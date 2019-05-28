@@ -4,6 +4,8 @@ title: Local install of netCDF with parallel mode enabled
 ---
 On our group server we have a global netCDF4 installation compiled without parallel I/O support. In the past we have found that attempting to reinstall netCDF in parallel has broken software which was compiled against the original library (e.g. GDAL). To avoid this issue, I made a local netCDF installation with parallel I/O support enabled. The specific application I had in mind was to build the land surface model JULES with parallel support, which requires a static build of the netCDF library. The basic guide I followed is the [Quick Instructions for Installing NetCDF on Unix](https://www.unidata.ucar.edu/software/netcdf/netcdf-4/newdocs/netcdf-install/Quick-Instructions-for-Installing-NetCDF-on-Unix.html).
 
+During the installation you will download a number of software packages. I suggest creating a directory (e.g. `$HOME/packages`) to store the source code tarballs.
+
 # Build zlib
 [zlib](https://en.wikipedia.org/wiki/Zlib) is a compression library used by netCDF. According to the guide above, netCDF-4 requires version 1.2.3 or better. I used version 1.2.11, which seemed to work fine. Download and unpack the source code:
 ```bash
